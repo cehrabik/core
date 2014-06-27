@@ -3,7 +3,6 @@ namespace Senary\Support;
 
 use Countable;
 use IteratorAggregate;
-use Iterator;
 use ArrayIterator;
 
 class Hash<Tk, Tv> implements Countable, IteratorAggregate<Tv>
@@ -11,7 +10,7 @@ class Hash<Tk, Tv> implements Countable, IteratorAggregate<Tv>
 
     /**
      * Items in storage
-     * @var Map
+     * @var array
      */
     protected array<Tk, Tv> $items;
 
@@ -19,7 +18,7 @@ class Hash<Tk, Tv> implements Countable, IteratorAggregate<Tv>
     /**
      * Constructor
      *
-     * @param  Map $items
+     * @param  array $items
      * @return void
      */
     public function __construct(array<Tk, Tv> $items = [])
@@ -193,6 +192,5 @@ class Hash<Tk, Tv> implements Countable, IteratorAggregate<Tv>
     {
         return $this->all();
     }
-
 
 }
