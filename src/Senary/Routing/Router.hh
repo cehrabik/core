@@ -13,19 +13,19 @@ class Router
 
     /**
      * Registered routes
-     * @var Vector
+     * @var array
      */
-    protected Vector<Route> $routes;
+    protected array<Route> $routes;
 
 
     /**
      * Constructor
      *
-     * @param  Vector       $routes
+     * @param  array        $routes
      * @param  RouteFactory $factory
      * @return void
      */
-    public function __construct(Vector<Route> $routes = Vector{}, ?RouteFactory $factory = null) :void
+    public function __construct(array<Route> $routes = [], ?RouteFactory $factory = null) :void
     {
         $this->routes = $routes;
         $this->factory = $factory ?: new RouteFactory();
@@ -35,9 +35,9 @@ class Router
     /**
      * Get registered routes
      *
-     * @return Vector
+     * @return array
      */
-    public function getRoutes() :Vector<Route>
+    public function getRoutes() :array<Route>
     {
         return $this->routes;
     }

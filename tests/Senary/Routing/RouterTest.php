@@ -20,7 +20,7 @@ class RouterTest extends TestCase
      */
     public function get_registered_routes()
     {
-        $this->assertEquals(Vector{}, $this->router->getRoutes());
+        $this->assertSame([], $this->router->getRoutes());
     }
 
 
