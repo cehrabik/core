@@ -78,10 +78,10 @@ class RequestTest extends TestCase
      */
     public function get_and_set_query()
     {
-        $this->assertEquals(Map{}, $this->request->getQuery());
+        $this->assertSame([], $this->request->getQuery());
 
-        $this->request->setQuery(Map{'foo' => 'bar'});
-        $this->assertEquals(Map{'foo' => 'bar'}, $this->request->getQuery());
+        $this->request->setQuery(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $this->request->getQuery());
     }
 
 
@@ -90,10 +90,10 @@ class RequestTest extends TestCase
      */
     public function get_and_set_query_alias()
     {
-        $this->assertEquals(Map{}, $this->request->query());
+        $this->assertSame([], $this->request->query());
 
-        $this->request->query(Map{'foo' => 'bar'});
-        $this->assertEquals(Map{'foo' => 'bar'}, $this->request->getQuery());
+        $this->request->query(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $this->request->getQuery());
     }
 
 
@@ -102,10 +102,10 @@ class RequestTest extends TestCase
      */
     public function get_and_set_post()
     {
-        $this->assertEquals(Map{}, $this->request->getPost());
+        $this->assertSame([], $this->request->getPost());
 
-        $this->request->setPost(Map{'foo' => 'bar'});
-        $this->assertEquals(Map{'foo' => 'bar'}, $this->request->getPost());
+        $this->request->setPost(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $this->request->getPost());
     }
 
 
@@ -114,10 +114,10 @@ class RequestTest extends TestCase
      */
     public function get_and_set_post_alias()
     {
-        $this->assertEquals(Map{}, $this->request->post());
+        $this->assertSame([], $this->request->post());
 
-        $this->request->post(Map{'foo' => 'bar'});
-        $this->assertEquals(Map{'foo' => 'bar'}, $this->request->getPost());
+        $this->request->post(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $this->request->getPost());
     }
 
 
@@ -126,10 +126,10 @@ class RequestTest extends TestCase
      */
     public function get_and_set_server()
     {
-        $this->assertEquals(Map{}, $this->request->getServer());
+        $this->assertSame([], $this->request->getServer());
 
-        $this->request->setServer(Map{'foo' => 'bar'});
-        $this->assertEquals(Map{'foo' => 'bar'}, $this->request->getServer());
+        $this->request->setServer(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $this->request->getServer());
     }
 
 
@@ -138,10 +138,10 @@ class RequestTest extends TestCase
      */
     public function get_and_set_server_alias()
     {
-        $this->assertEquals(Map{}, $this->request->server());
+        $this->assertSame([], $this->request->server());
 
-        $this->request->server(Map{'foo' => 'bar'});
-        $this->assertEquals(Map{'foo' => 'bar'}, $this->request->getServer());
+        $this->request->server(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $this->request->getServer());
     }
 
 

@@ -20,23 +20,23 @@ class Request
 
     /**
      * $_GET
-     * @var Map
+     * @var array
      */
-    protected Map<string, mixed> $query;
+    protected array<string, mixed> $query;
 
 
     /**
      * $_POST
-     * @var Map
+     * @var array
      */
-    protected Map<string, mixed> $post;
+    protected array<string, mixed> $post;
 
 
     /**
      * $_SERVER
-     * @var Map
+     * @var array
      */
-    protected Map<string, mixed> $server;
+    protected array<string, mixed> $server;
 
 
     /**
@@ -44,18 +44,18 @@ class Request
      *
      * @param  string $method
      * @param  string $uri
-     * @param  Map    $query  - $_GET
-     * @param  Map    $post   - $_POST
-     * @param  Map    $server - $_SERVER
+     * @param  array  $query  - $_GET
+     * @param  array  $post   - $_POST
+     * @param  array  $server - $_SERVER
      * @return void
      */
     public function __construct
     (
         string $method,
         string $uri,
-        Map<string, mixed> $query=Map{},
-        Map<string, mixed> $post=Map{},
-        Map<string, mixed> $server=Map{}
+        array<string, mixed> $query=[],
+        array<string, mixed> $post=[],
+        array<string, mixed> $server=[]
     ) :void
     {
         $this->method = $method;
@@ -157,9 +157,9 @@ class Request
     /**
      * Get query ($_GET)
      *
-     * @return Map
+     * @return array
      */
-    public function getQuery() :Map<string, mixed>
+    public function getQuery() :array<string, mixed>
     {
         return $this->query;
     }
@@ -168,10 +168,10 @@ class Request
     /**
      * Set query ($_GET)
      *
-     * @param  Map $query
+     * @param  array $query
      * @return self
      */
-    public function setQuery(Map<string, mixed> $query) :this
+    public function setQuery(array<string, mixed> $query) :this
     {
         $this->query = $query;
         return $this;
@@ -181,10 +181,10 @@ class Request
     /**
      * Get and set query (_GET) alias
      *
-     * @param  Map $query
-     * @return self|Map
+     * @param  array $query
+     * @return self|array
      */
-    public function query(?Map<string, mixed> $query = null) :mixed
+    public function query(?array<string, mixed> $query = null) :mixed
     {
         if( is_null($query) ) return $this->query;
 
@@ -195,9 +195,9 @@ class Request
     /**
      * Get post (_POST)
      *
-     * @return Map
+     * @return array
      */
-    public function getPost() :Map<string, mixed>
+    public function getPost() :array<string, mixed>
     {
         return $this->post;
     }
@@ -206,10 +206,10 @@ class Request
     /**
      * Set post (_POST)
      *
-     * @param  Map $post
+     * @param  array $post
      * @return self
      */
-    public function setPost(Map<string, mixed> $post) :this
+    public function setPost(array<string, mixed> $post) :this
     {
         $this->post = $post;
         return $this;
@@ -219,10 +219,10 @@ class Request
     /**
      * Get and set post alias
      *
-     * @param  Map $post
-     * @return self|Map
+     * @param  array $post
+     * @return self|array
      */
-    public function post(?Map<string, mixed> $post = null) :mixed
+    public function post(?array<string, mixed> $post = null) :mixed
     {
         if( is_null($post) ) return $this->post;
 
@@ -233,9 +233,9 @@ class Request
     /**
      * Get server (_SERVER)
      *
-     * @return Map
+     * @return array
      */
-    public function getServer() :Map<string, mixed>
+    public function getServer() :array<string, mixed>
     {
         return $this->server;
     }
@@ -244,10 +244,10 @@ class Request
     /**
      * Set server (_SERVER)
      *
-     * @param  Map $server
+     * @param  array $server
      * @return self
      */
-    public function setServer(Map<string, mixed> $server) :this
+    public function setServer(array<string, mixed> $server) :this
     {
         $this->server = $server;
         return $this;
@@ -257,10 +257,10 @@ class Request
     /**
      * Get and set server alias (_SERVER)
      *
-     * @param  Map $server
-     * @return self|Map
+     * @param  array $server
+     * @return self|array
      */
-    public function server(?Map<string, mixed> $server = null) :mixed
+    public function server(?array<string, mixed> $server = null) :mixed
     {
         if( is_null($server) ) return $this->server;
 
