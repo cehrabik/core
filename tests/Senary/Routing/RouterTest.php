@@ -1,6 +1,6 @@
 <?hh
 
-use Senary\Routing\Router;
+use Senary\Routing\RouteManager;
 
 class RouterTest extends TestCase
 {
@@ -11,7 +11,7 @@ class RouterTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->router = new Router();
+        $this->router = new RouteManager();
     }
 
 

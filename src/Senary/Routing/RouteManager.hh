@@ -3,7 +3,7 @@ namespace Senary\Routing;
 
 use Senary\Support\Hash;
 
-class Router
+class RouteManager
 {
 
     /**
