@@ -1,6 +1,8 @@
 <?hh // strict
 namespace Senary\Routing;
 
+use Senary\Support\Hash;
+
 class Router
 {
 
@@ -13,21 +15,21 @@ class Router
 
     /**
      * Registered routes
-     * @var array
+     * @var Hash
      */
-    protected array<Route> $routes;
+    protected Hash<int, Route> $routes;
 
 
     /**
      * Constructor
      *
-     * @param  array        $routes
+     * @param  Hash         $routes
      * @param  RouteFactory $factory
      * @return void
      */
-    public function __construct(array<Route> $routes = [], ?RouteFactory $factory = null) :void
+    public function __construct(?Hash<int, Route> $routes = null, ?RouteFactory $factory = null) :void
     {
-        $this->routes = $routes;
+        $this->routes = $routes ?: new Hash();
         $this->factory = $factory ?: new RouteFactory();
     }
 
@@ -37,7 +39,7 @@ class Router
      *
      * @return array
      */
-    public function getRoutes() :array<Route>
+    public function getRoutes() :Hash<int, Route>
     {
         return $this->routes;
     }
