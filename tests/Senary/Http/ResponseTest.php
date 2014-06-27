@@ -68,10 +68,10 @@ class ResponseTest extends TestCase
      */
     public function get_and_set_headers()
     {
-        $this->assertEquals(Map{}, $this->response->getHeaders());
+        $this->assertSame([], $this->response->getHeaders());
 
-        $this->response->setHeaders(Map{'foo' => 'bar'});
-        $this->assertEquals(Map{'foo' => 'bar'}, $this->response->getHeaders());
+        $this->response->setHeaders(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $this->response->getHeaders());
     }
 
 
@@ -80,10 +80,10 @@ class ResponseTest extends TestCase
      */
     public function get_and_set_headers_alias()
     {
-        $this->assertEquals(Map{}, $this->response->headers());
+        $this->assertSame([], $this->response->headers());
 
-        $this->response->headers(Map{'client' => 'senary'});
-        $this->assertEquals(Map{'client' => 'senary'}, $this->response->getHeaders());
+        $this->response->headers(['client' => 'senary']);
+        $this->assertSame(['client' => 'senary'], $this->response->getHeaders());
     }
 
 

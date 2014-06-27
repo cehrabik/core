@@ -20,9 +20,9 @@ class Response
 
     /**
      * Response headers
-     * @var Map
+     * @var array
      */
-    protected Map<string, mixed> $headers;
+    protected array<string, mixed> $headers;
 
 
     /**
@@ -30,10 +30,10 @@ class Response
      *
      * @param  string $content
      * @param  int    $status
-     * @param  Map    $headers
+     * @param  array    $headers
      * @return void
      */
-    public function __construct(string $content, int $status = 200, Map<string, mixed> $headers = Map{}) :void
+    public function __construct(string $content, int $status = 200, array<string, mixed> $headers = []) :void
     {
         $this->content = $content;
         $this->status = $status;
@@ -120,9 +120,9 @@ class Response
     /**
      * Get headers
      *
-     * @return Map
+     * @return array
      */
-    public function getHeaders() :Map<string, mixed>
+    public function getHeaders() :array<string, mixed>
     {
         return $this->headers;
     }
@@ -131,10 +131,10 @@ class Response
     /**
      * Set headers
      *
-     * @param  Map $headers
+     * @param  array $headers
      * @return self
      */
-    public function setHeaders(Map<string, mixed> $headers) :this
+    public function setHeaders(array<string, mixed> $headers) :this
     {
         $this->headers = $headers;
         return $this;
@@ -144,10 +144,10 @@ class Response
     /**
      * Get and set headers alias
      *
-     * @param  Map $headers
-     * @return self|Map
+     * @param  array $headers
+     * @return self|array
      */
-    public function headers(?Map<string, mixed> $headers = null) :mixed
+    public function headers(?array<string, mixed> $headers = null) :mixed
     {
         if( is_null($headers) ) return $this->headers;
 
