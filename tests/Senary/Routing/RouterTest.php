@@ -1,6 +1,6 @@
 <?hh
 
-use Senary\Router\Router;
+use Senary\Routing\Router;
 
 class RouterTest extends TestCase
 {
@@ -31,7 +31,7 @@ class RouterTest extends TestCase
     {
         $route = $this->router->register('GET', '/foo');
 
-        $this->assertInstanceOf('Senary\Router\Route', $route);
+        $this->assertInstanceOf('Senary\Routing\Route', $route);
     }
 
 }

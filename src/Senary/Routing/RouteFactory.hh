@@ -1,5 +1,5 @@
 <?hh // strict
-namespace Senary\Router;
+namespace Senary\Routing;
 
 class RouteFactory
 {

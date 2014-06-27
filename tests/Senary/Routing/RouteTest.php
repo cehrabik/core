@@ -1,6 +1,6 @@
 <?hh
 
-use Senary\Router\Route;
+use Senary\Routing\Route;
 
 class RouteTest extends TestCase
 {
