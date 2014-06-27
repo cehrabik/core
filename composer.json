@@ -1,0 +1,24 @@
+{
+    "name": "senary/core",
+    "description": "Senary core components",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kyle Ferguson",
+            "email": "kylegferg@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "tests/TestCase.php"
+        ],
+        "psr-4": {
+            "Senary\\": "src/Senary"
+        }
+    }
+}
