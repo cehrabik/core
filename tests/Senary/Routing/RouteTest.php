@@ -62,4 +62,42 @@ class RouteTest extends TestCase
         $this->assertSame('/bar', $this->route->getUri());
     }
 
+
+    /**
+     * @test
+     */
+    public function set_callback_action()
+    {
+        $this->route->call(function() { return 'foo'; });
+    }
+
+
+    /**
+     * @test
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function throws_an_exception_if_callback_isnt_callable()
+    {
+        $this->route->call('foo');
+    }
+
+
+    /**
+     * @test
+     */
+    public function sets_class_name_to_use()
+    {
+        $this->route->to('Senary\Http\Response');
+    }
+
+
+    /**
+     * @test
+     */
+    public function sets_method_name_to_use_on_class()
+    {
+        $this->route->at('method');
+    }
+
 }

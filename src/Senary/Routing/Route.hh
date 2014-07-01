@@ -12,10 +12,31 @@ class Route
 
 
     /**
-     * URI patter for route
+     * URI pattern for route
      * @var string
      */
     protected string $uri;
+
+
+    /**
+     * Callable action
+     * @var \Closure
+     */
+    protected ?(function() :string) $callback;
+
+
+    /**
+     * To class name
+     * @var string
+     */
+    protected ?string $toClass;
+
+
+    /**
+     * At class method name
+     * @var string
+     */
+    protected ?string $atMethod;
 
 
     /**
@@ -107,5 +128,46 @@ class Route
         return $this->setUri($uri);
     }
 
+
+    /**
+     * Set callback action for route
+     *
+     * @param  \Closure $callback
+     * @return self
+     * @throws \InvalidArgumentException
+     */
+    public function call( (function() :string) $callback) :this
+    {
+        if( !is_callable($callback) ) throw new \InvalidArgumentException('Argument must be callable');
+        $this->callback = $callback;
+
+        return $this;
+    }
+
+
+    /**
+     * Set class name to use
+     *
+     * @param  string $toClass
+     * @return self
+     */
+    public function to(string $toClass) :this
+    {
+        $this->toClass = $toClass;
+        return $this;
+    }
+
+
+    /**
+     * Set method to use on class
+     *
+     * @param  string $atMethod
+     * @return self
+     */
+    public function at(string $atMethod) :this
+    {
+        $this->atMethod = $atMethod;
+        return $this;
+    }
 
 }
