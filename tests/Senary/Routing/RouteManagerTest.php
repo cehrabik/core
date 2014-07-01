@@ -2,7 +2,7 @@
 
 use Senary\Routing\RouteManager;
 
-class RouterTest extends TestCase
+class RouteManagerTest extends TestCase
 {
 
     /**
