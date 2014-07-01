@@ -130,13 +130,13 @@ class Route
 
 
     /**
-     * Set callback action for route
+     * Set callable action for route
      *
      * @param  \Closure $callback
      * @return self
      * @throws \InvalidArgumentException
      */
-    public function call( (function() :string) $callback) :this
+    public function setCallback( (function() :string) $callback) :this
     {
         if( !is_callable($callback) ) throw new \InvalidArgumentException('Argument must be callable');
         $this->callback = $callback;
@@ -146,15 +146,62 @@ class Route
 
 
     /**
+     * Alias for setCallback
+     *
+     * @param  \Closure $callback
+     * @return self
+     * @throws \InvalidArgumentException
+     */
+    public function call( (function() :string) $callback) :this
+    {
+        return $this->setCallback($callback);
+    }
+
+
+    /**
+     * Determine if route has callback
+     *
+     * @return bool
+     */
+    public function hasCallback() :bool
+    {
+        return !is_null($this->callback);
+    }
+
+
+    /**
+     * Get callback
+     *
+     * @return string
+     */
+    public function getCallback() :?(function() :string)
+    {
+        return $this->callback;
+    }
+
+
+    /**
      * Set class name to use
+     *
+     * @param  string $toClass
+     * @return self
+     */
+    public function setToClass(string $toClass) :this
+    {
+        $this->toClass = $toClass;
+        return $this;
+    }
+
+
+    /**
+     * Alias for set toClass
      *
      * @param  string $toClass
      * @return self
      */
     public function to(string $toClass) :this
     {
-        $this->toClass = $toClass;
-        return $this;
+        return $this->setToClass($toClass);
     }
 
 
@@ -164,10 +211,22 @@ class Route
      * @param  string $atMethod
      * @return self
      */
-    public function at(string $atMethod) :this
+    public function setAtMethod(string $atMethod) :this
     {
         $this->atMethod = $atMethod;
         return $this;
+    }
+
+
+    /**
+     * Alias for set atMethod
+     *
+     * @param  string $atMethod
+     * @return self
+     */
+    public function at(string $atMethod) :this
+    {
+        return $this->setAtMethod($atMethod);
     }
 
 }

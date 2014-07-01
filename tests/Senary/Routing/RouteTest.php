@@ -86,6 +86,31 @@ class RouteTest extends TestCase
     /**
      * @test
      */
+    public function determines_if_callback_is_set()
+    {
+        $this->assertFalse( $this->route->hasCallback() );
+
+        $this->route->call(function() { return 'foo'; });
+        $this->assertTrue( $this->route->hasCallback() );
+    }
+
+
+    /**
+     * @test
+     */
+    public function gets_callback_result()
+    {
+        $this->route->call(function() { return 'foo'; });
+        $this->assertInstanceOf('Closure', $this->route->getCallback());
+
+        $result = call_user_func($this->route->getCallback());
+        $this->assertSame('foo', $result);
+    }
+
+
+    /**
+     * @test
+     */
     public function sets_class_name_to_use()
     {
         $this->route->to('Senary\Http\Response');
@@ -99,5 +124,6 @@ class RouteTest extends TestCase
     {
         $this->route->at('method');
     }
+
 
 }
