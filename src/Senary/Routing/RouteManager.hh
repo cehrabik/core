@@ -55,8 +55,81 @@ class RouteManager
     public function register(string $method, string $uri) :Route
     {
         $route = $this->factory->make($method, $uri);
+        $this->routes->push($route);
 
         return $route;
+    }
+
+
+    /**
+     * Register new GET route
+     *
+     * @param  string $uri
+     * @return Route
+     */
+    public function get(string $uri) :Route
+    {
+        return $this->register('GET', $uri);
+    }
+
+
+    /**
+     * Register new POST route
+     *
+     * @param  string $uri
+     * @return Route
+     */
+    public function post(string $uri) :Route
+    {
+        return $this->register('POST', $uri);
+    }
+
+
+    /**
+     * Register new PUT route
+     *
+     * @param  string $uri
+     * @return Route
+     */
+    public function put(string $uri) :Route
+    {
+        return $this->register('PUT', $uri);
+    }
+
+
+    /**
+     * Register new DELETE route
+     *
+     * @param  string $uri
+     * @return Route
+     */
+    public function delete(string $uri) :Route
+    {
+        return $this->register('DELETE', $uri);
+    }
+
+
+    /**
+     * Register new HEAD route
+     *
+     * @param  string $uri
+     * @return Route
+     */
+    public function head(string $uri) :Route
+    {
+        return $this->register('HEAD', $uri);
+    }
+
+
+    /**
+     * Register new OPTIONS route
+     *
+     * @param  string $uri
+     * @return Route
+     */
+    public function options(string $uri) :Route
+    {
+        return $this->register('OPTIONS', $uri);
     }
 
 }
