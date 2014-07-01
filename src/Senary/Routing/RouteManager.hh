@@ -1,7 +1,7 @@
 <?hh // strict
 namespace Senary\Routing;
 
-use Senary\Support\Hash;
+use Senary\Support\Listing;
 
 class RouteManager
 {
@@ -15,21 +15,21 @@ class RouteManager
 
     /**
      * Registered routes
-     * @var Hash
+     * @var Listing
      */
-    protected Hash<int, Route> $routes;
+    protected Listing<Route> $routes;
 
 
     /**
      * Constructor
      *
-     * @param  Hash         $routes
+     * @param  Listing      $routes
      * @param  RouteFactory $factory
      * @return void
      */
-    public function __construct(?Hash<int, Route> $routes = null, ?RouteFactory $factory = null) :void
+    public function __construct(?Listing<Route> $routes = null, ?RouteFactory $factory = null) :void
     {
-        $this->routes = $routes ?: new Hash();
+        $this->routes = $routes ?: new Listing();
         $this->factory = $factory ?: new RouteFactory();
     }
 
@@ -39,7 +39,7 @@ class RouteManager
      *
      * @return array
      */
-    public function getRoutes() :Hash<int, Route>
+    public function getRoutes() :Listing<Route>
     {
         return $this->routes;
     }
